@@ -1,0 +1,13 @@
+defaults:
+
+  db: &db
+    database_name: todolist
+    production_address: localhost:27017
+    username: ''
+    password: ''
+
+development:
+  db: *db
+  redis:
+    url: redis://localhost:6379
+    namespace: todolist_development
