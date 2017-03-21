@@ -1,4 +1,4 @@
 object @task
 
-attributes :title, :description, :create_at
+attributes :title, :description, :created_at
 node(:id) { |task| task.id.to_s }

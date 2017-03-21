@@ -9,4 +9,14 @@ class ApiController < ApplicationController
       false
     end
   end
+
+  def found?(*args)
+    if args.all? {|arg| arg != nil}
+      yield if block_given?
+      true
+    else
+      render status: :not_found, json: {response: 'resource not found'}
+      false
+    end
+  end
 end

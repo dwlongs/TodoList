@@ -8,5 +8,12 @@ class Api::TasksController < ApiController
 
   def create
     valid?(@task = Task.create(title: params[:title].to_s, description: ''))
+    render status: :ok
+  end
+
+  def destroy
+    @task = Task.find_by(id: params[:id])
+    @task.destroy
+    render status: :ok
   end
 end
