@@ -107,31 +107,3 @@ export default class TodoView extends Component {
         )
     }
 }
-
-// {/*<Paper className={Styles.todoWrapper} zDepth={2}>*/}
-//     {/*<h2>{`All items (${total}/${doneTotal})`}</h2>*/}
-//     {/*<h3 className={Styles.todoTitle}>*/}
-//         {/*<span>To do :</span>*/}
-//         {/*<div></div>*/}
-//     {/*</h3>*/}
-//     {/*<div className={Styles.textFieldWrapper}>*/}
-//         {/*<TextField*/}
-//             {/*hintText={"Type and hit Enter to add"}*/}
-//             {/*underlineStyle={TodoView.styles.underlineStyle}*/}
-//             {/*fullWidth={true}*/}
-//             {/*onKeyPress={this.addTodoHandle}*/}
-//             {/*errorText={this.state.errorText}*/}
-//             {/*onChange={this.onChangeHandle}*/}
-//             {/*value={this.state.textValue}*/}
-//             {/*ref="todoInput"*/}
-//         {/*/>*/}
-//     {/*</div>*/}
-//     {/*<h3 className={Styles.doneTitle}>*/}
-//         {/*<span>Done :</span>*/}
-//         {/*<div></div>*/}
-//     {/*</h3>*/}
-//     {/*<div className={Styles.doneListPanel}>*/}
-//         {/*<TodoItems test={"done"} items={this.props.doneItemList}*/}
-//                    {/*onChangeHandle={this.onUnFinishTodoHandle} />*/}
-//     {/*</div>*/}
-// {/*</Paper>*/}

@@ -36,7 +36,6 @@ export default class TodoItems extends Component {
     }
 
     render() {
-        // console.log('items', this.props.items)
         return (
             <div>
                 {

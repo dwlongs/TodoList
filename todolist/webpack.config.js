@@ -1,10 +1,11 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
+const fs = require('fs')
 
 module.exports = {
-	entry: path.resolve(__dirname, 'app.js'),
+	entry: path.resolve('app/rassets/app.js'),
 	output: {
-		path: path.join('/Users/wldu/program/ruby/TodoList/todolist/public', 'javascripts'),
+		path: path.resolve('public/javascripts'),
 		filename: 'app-todolist.js',
 	},
 	module: {
@@ -27,19 +28,5 @@ module.exports = {
             }
 		]
 	}
-};
-
-
-const src = path.join(__dirname, '..', '..', 'app')
-const fs = require('fs')
-if (fs.existsSync(src)) {
-  module.exports.resolve = { 
-  	alias: { 'react-router-redux': src },
-  	extensions: ['', '.js', '.jsx', '.css']
-  }
-  module.exports.module.loaders.push({
-    test: /\.js$/,
-    loaders: ['babel'],
-    include: src
-  });
 }
+

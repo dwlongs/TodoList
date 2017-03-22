@@ -5,9 +5,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import BlueTheme from '../themes/blue-theme'
-import * as TodoActionCreaters from '../../actions'
-
-
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar'
 import TextField from 'material-ui/TextField'
 import SearchIcon from 'material-ui/svg-icons/action/search'
@@ -19,9 +16,9 @@ import ContentAdd from 'material-ui/svg-icons/content/add'
 import TaskView from '../views/taskView'
 import CreateListDialog from '../views/createListDialog'
 import TodoView from '../views/todoView'
+import * as TodoActionCreaters from '../../actions'
 
 import Styles from '../styles/todolist.css'
-
 
 require('../styles/todolist.css')
 
@@ -51,10 +48,6 @@ class AppContainer extends Component {
                 fill: "#396e3c",
             }
         }
-    }
-
-    handleToggle = () => {
-        this.setState({open: !this.state.open})
     }
 
     componentWillMount() {
