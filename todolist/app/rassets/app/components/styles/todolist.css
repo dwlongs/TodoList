@@ -1,0 +1,182 @@
+html, body {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Lato","Geneva CY","Lucida Grande","Arial Unicode MS","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+body {
+    color: #262626;
+    /*background-color: #10c1a2;*/
+    font-size: 14px;
+    margin: 0;
+    opacity: 1;
+}
+
+.backgroundLayout {
+    background-image: url("../../images/background.jpg") !important;
+    content: '';
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+}
+
+.backgroundLayout:after {
+    opacity: 0;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.listNav {
+    background-color: #f7f7f7;
+    flex: 0 0 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+.listNav > div:first-child {
+    display: flex;
+    flex: 0 0 auto;
+    background-color: #5b7a59;
+}
+
+.listNav > nav {
+    overflow-y: auto;
+    flex: 1 1 auto;
+}
+
+.listNav > div:last-child {
+    flex: 0 0 auto;
+    display: flex;
+    background-color: #f7f7f7;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 15px;
+    height: 42px;
+    align-items: center;
+    color: #396e3c;
+}
+
+.listNav > div:last-child > span:first-child {
+    padding: 0 10px 0 10px;
+}
+
+.listNav > div:last-child > span:last-child {
+    flex: 1 0 auto;
+}
+
+.listScroll {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+}
+
+.createListDialog {
+    width: 70% !important;
+    max-width: 650px !important;
+}
+
+.dialogTitle {
+    font-size: 1.17em !important;
+    color: #262626 !important;
+    text-align: center;
+    padding: 14px 14px 14px !important;
+
+}
+
+.taskTodoList {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+}
+
+.todoPanel {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.taskTodoList > div:first-child {
+    background: #668964;
+    min-height: 48px;
+    height: 48px;
+}
+
+.taskTodoList > div:first-child > h1 {
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 14px 10px 30px;
+    font-weight: 200;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskTodoList > div:last-child {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addTodoInput {
+    margin: 14px 0 14px 0;
+    padding: 13px 60px 14px 28px;
+    background: rgba(102,137,100,0.75);
+    border-radius: 4px;
+}
+
+.addTodoInput > input {
+    line-height: 20px;
+    font-size: 20px;
+    width: 100%;
+    padding: 0;
+    border: none !important;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+
+.doingTodoLabel {
+    color: #262626;
+    font-size: 14px;
+    font-weight: 500;
+    background: transparent;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.doingTodoLabel > div {
+    max-width: 25px;
+}
+
+.doingTodoLabel > span {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #262626;
+}
+
+.showDoneListBar {
+    margin: 20px 0 10px 0;
+    font-size: 11px;
+    color: #fff;
+    width: 300px;
+    background: rgba(102,137,100,0.75);
+}
+
+.unShowDoneTodoList {
+    display: none !important;
+}

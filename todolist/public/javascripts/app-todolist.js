@@ -19100,26 +19100,30 @@ var TodoView = function (_Component) {
                             ref: 'inputTodo'
                         })
                     ),
-                    _react2.default.createElement(_todoItems2.default, {
-                        test: "doing",
-                        items: this.props.doingTodoList,
-                        onChangeHandle: this.onFinishTodoHandle
-                    }),
-                    _react2.default.createElement(_RaisedButton2.default, {
-                        label: 'Show completed to-dos',
-                        className: _todolist2.default.showDoneListBar,
-                        onTouchTap: this.showDoneTodoListHandle
-                    }),
                     _react2.default.createElement(
                         'div',
-                        {
-                            className: this.state.unShowDoneTodoList ? _todolist2.default.unShowDoneTodoList : null
-                        },
+                        { className: _todolist2.default.todoPanel },
                         _react2.default.createElement(_todoItems2.default, {
-                            test: "done",
-                            items: this.props.doneTodoList,
-                            onChangeHandle: this.onUnFinishTodoHandle
-                        })
+                            test: "doing",
+                            items: this.props.doingTodoList,
+                            onChangeHandle: this.onFinishTodoHandle
+                        }),
+                        _react2.default.createElement(_RaisedButton2.default, {
+                            label: 'Show completed to-dos',
+                            className: _todolist2.default.showDoneListBar,
+                            onTouchTap: this.showDoneTodoListHandle
+                        }),
+                        _react2.default.createElement(
+                            'div',
+                            {
+                                className: this.state.unShowDoneTodoList ? _todolist2.default.unShowDoneTodoList : null
+                            },
+                            _react2.default.createElement(_todoItems2.default, {
+                                test: "done",
+                                items: this.props.doneTodoList,
+                                onChangeHandle: this.onUnFinishTodoHandle
+                            })
+                        )
                     )
                 )
             );
@@ -49911,7 +49915,7 @@ exports = module.exports = __webpack_require__(284)();
 
 
 // module
-exports.push([module.i, "html, body {\n    height: 100%;\n    -webkit-font-smoothing: antialiased;\n    font-family: \"Lato\",\"Geneva CY\",\"Lucida Grande\",\"Arial Unicode MS\",\"Helvetica Neue\",\"Helvetica\",\"Arial\",sans-serif;\n}\n\nbody {\n    color: #262626;\n    /*background-color: #10c1a2;*/\n    font-size: 14px;\n    margin: 0;\n    opacity: 1;\n}\n\n.todolist__backgroundLayout___1xr2- {\n    background-image: url(" + __webpack_require__(534) + ") !important;\n    content: '';\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    background-repeat: no-repeat;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    z-index: -100;\n}\n\n.todolist__backgroundLayout___1xr2-:after {\n    opacity: 0;\n}\n\nmain {\n    height: 100%;\n    display: flex;\n    flex: 1 0 auto;\n}\n\n.todolist__listNav___33v3o {\n    background-color: #f7f7f7;\n    flex: 0 0 360px;\n    display: flex;\n    flex-direction: column;\n}\n\n.todolist__listNav___33v3o > div:first-child {\n    display: flex;\n    flex: 0 0 auto;\n    background-color: #5b7a59;\n}\n\n.todolist__listNav___33v3o > nav {\n    overflow-y: auto;\n    flex: 1 1 auto;\n}\n\n.todolist__listNav___33v3o > div:last-child {\n    flex: 0 0 auto;\n    display: flex;\n    background-color: #f7f7f7;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    font-size: 15px;\n    height: 42px;\n    align-items: center;\n    color: #396e3c;\n}\n\n.todolist__listNav___33v3o > div:last-child > span:first-child {\n    padding: 0 10px 0 10px;\n}\n\n.todolist__listNav___33v3o > div:last-child > span:last-child {\n    flex: 1 0 auto;\n}\n\n.todolist__listScroll___1iCu5 {\n    display: flex;\n    flex-direction: column;\n    background-color: #f7f7f7;\n}\n\n.todolist__createListDialog___M4cbB {\n    width: 70% !important;\n    max-width: 650px !important;\n}\n\n.todolist__dialogTitle___7vUh- {\n    font-size: 1.17em !important;\n    color: #262626 !important;\n    text-align: center;\n    padding: 14px 14px 14px !important;\n\n}\n\n.todolist__taskTodoList___2wwZq {\n    display: flex;\n    flex: 1 0 auto;\n    flex-direction: column;\n}\n\n.todolist__taskTodoList___2wwZq > div:first-child {\n    background: #668964;\n    min-height: 48px;\n    height: 48px;\n}\n\n.todolist__taskTodoList___2wwZq > div:first-child > h1 {\n    font-size: 20px;\n    color: #fff;\n    padding: 10px 14px 10px 30px;\n    font-weight: 200;\n    margin: 0;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.todolist__taskTodoList___2wwZq > div:last-child {\n    margin: 0 30px;\n    display: flex;\n    flex-direction: column;\n}\n\n.todolist__addTodoInput___1IjHj {\n    margin: 14px 0 14px 0;\n    padding: 13px 60px 14px 28px;\n    background: rgba(102,137,100,0.75);\n    border-radius: 4px;\n}\n\n.todolist__addTodoInput___1IjHj > input {\n    line-height: 20px;\n    font-size: 20px;\n    width: 100%;\n    padding: 0;\n    border: none !important;\n    outline: none;\n    background: transparent;\n    color: #fff;\n}\n\n.todolist__doingTodoLabel___12AFg {\n    color: #262626;\n    font-size: 14px;\n    font-weight: 500;\n    background: transparent;\n    height: 47px;\n    display: flex;\n    align-items: center;\n    border-radius: 4px;\n    padding: 0 10px 0 10px;\n    margin-top: 2px;\n    cursor: pointer;\n}\n\n.todolist__doingTodoLabel___12AFg > div {\n    max-width: 25px;\n}\n\n.todolist__doingTodoLabel___12AFg > span {\n    margin-left: 10px;\n    font-size: 20px;\n    font-weight: 500;\n    color: #262626;\n}\n\n.todolist__showDoneListBar___3FlPJ {\n    margin: 20px 0 10px 0;\n    font-size: 11px;\n    color: #fff;\n    width: 300px;\n    background: rgba(102,137,100,0.75);\n}\n\n.todolist__unShowDoneTodoList___1AUbO {\n    display: none !important;\n}", ""]);
+exports.push([module.i, "html, body {\n    height: 100%;\n    -webkit-font-smoothing: antialiased;\n    font-family: \"Lato\",\"Geneva CY\",\"Lucida Grande\",\"Arial Unicode MS\",\"Helvetica Neue\",\"Helvetica\",\"Arial\",sans-serif;\n}\n\nbody {\n    color: #262626;\n    /*background-color: #10c1a2;*/\n    font-size: 14px;\n    margin: 0;\n    opacity: 1;\n}\n\n.todolist__backgroundLayout___1xr2- {\n    background-image: url(" + __webpack_require__(534) + ") !important;\n    content: '';\n    -webkit-background-size: cover;\n    -moz-background-size: cover;\n    background-repeat: no-repeat;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    z-index: -100;\n}\n\n.todolist__backgroundLayout___1xr2-:after {\n    opacity: 0;\n}\n\nmain {\n    height: 100%;\n    display: flex;\n    flex: 1 0 auto;\n}\n\n.todolist__listNav___33v3o {\n    background-color: #f7f7f7;\n    flex: 0 0 360px;\n    display: flex;\n    flex-direction: column;\n}\n\n.todolist__listNav___33v3o > div:first-child {\n    display: flex;\n    flex: 0 0 auto;\n    background-color: #5b7a59;\n}\n\n.todolist__listNav___33v3o > nav {\n    overflow-y: auto;\n    flex: 1 1 auto;\n}\n\n.todolist__listNav___33v3o > div:last-child {\n    flex: 0 0 auto;\n    display: flex;\n    background-color: #f7f7f7;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    font-size: 15px;\n    height: 42px;\n    align-items: center;\n    color: #396e3c;\n}\n\n.todolist__listNav___33v3o > div:last-child > span:first-child {\n    padding: 0 10px 0 10px;\n}\n\n.todolist__listNav___33v3o > div:last-child > span:last-child {\n    flex: 1 0 auto;\n}\n\n.todolist__listScroll___1iCu5 {\n    display: flex;\n    flex-direction: column;\n    background-color: #f7f7f7;\n}\n\n.todolist__createListDialog___M4cbB {\n    width: 70% !important;\n    max-width: 650px !important;\n}\n\n.todolist__dialogTitle___7vUh- {\n    font-size: 1.17em !important;\n    color: #262626 !important;\n    text-align: center;\n    padding: 14px 14px 14px !important;\n\n}\n\n.todolist__taskTodoList___2wwZq {\n    display: flex;\n    flex: 1 0 auto;\n    flex-direction: column;\n}\n\n.todolist__todoPanel___3FtIL {\n    display: flex;\n    flex-direction: column;\n    overflow-y: auto;\n}\n\n.todolist__taskTodoList___2wwZq > div:first-child {\n    background: #668964;\n    min-height: 48px;\n    height: 48px;\n}\n\n.todolist__taskTodoList___2wwZq > div:first-child > h1 {\n    font-size: 20px;\n    color: #fff;\n    padding: 10px 14px 10px 30px;\n    font-weight: 200;\n    margin: 0;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.todolist__taskTodoList___2wwZq > div:last-child {\n    margin: 0 30px;\n    display: flex;\n    flex-direction: column;\n}\n\n.todolist__addTodoInput___1IjHj {\n    margin: 14px 0 14px 0;\n    padding: 13px 60px 14px 28px;\n    background: rgba(102,137,100,0.75);\n    border-radius: 4px;\n}\n\n.todolist__addTodoInput___1IjHj > input {\n    line-height: 20px;\n    font-size: 20px;\n    width: 100%;\n    padding: 0;\n    border: none !important;\n    outline: none;\n    background: transparent;\n    color: #fff;\n}\n\n.todolist__doingTodoLabel___12AFg {\n    color: #262626;\n    font-size: 14px;\n    font-weight: 500;\n    background: transparent;\n    height: 47px;\n    display: flex;\n    align-items: center;\n    border-radius: 4px;\n    padding: 0 10px 0 10px;\n    margin-top: 2px;\n    cursor: pointer;\n}\n\n.todolist__doingTodoLabel___12AFg > div {\n    max-width: 25px;\n}\n\n.todolist__doingTodoLabel___12AFg > span {\n    margin-left: 10px;\n    font-size: 20px;\n    font-weight: 500;\n    color: #262626;\n}\n\n.todolist__showDoneListBar___3FlPJ {\n    margin: 20px 0 10px 0;\n    font-size: 11px;\n    color: #fff;\n    width: 300px;\n    background: rgba(102,137,100,0.75);\n}\n\n.todolist__unShowDoneTodoList___1AUbO {\n    display: none !important;\n}", ""]);
 
 // exports
 exports.locals = {
@@ -49921,6 +49925,7 @@ exports.locals = {
 	"createListDialog": "todolist__createListDialog___M4cbB",
 	"dialogTitle": "todolist__dialogTitle___7vUh-",
 	"taskTodoList": "todolist__taskTodoList___2wwZq",
+	"todoPanel": "todolist__todoPanel___3FtIL",
 	"addTodoInput": "todolist__addTodoInput___1IjHj",
 	"doingTodoLabel": "todolist__doingTodoLabel___12AFg",
 	"showDoneListBar": "todolist__showDoneListBar___3FlPJ",

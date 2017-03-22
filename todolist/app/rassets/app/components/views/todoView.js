@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
-import Paper from 'material-ui/Paper'
-import TextField from 'material-ui/TextField'
-import Checkbox from 'material-ui/Checkbox'
-import IconButton from 'material-ui/IconButton'
-import { green500 } from 'material-ui/styles/colors'
+import React, {Component} from 'react'
+import RaisedButton from 'material-ui/RaisedButton'
 
-import Styles from '../styles/core.css'
+import Styles from '../styles/todolist.css'
 
 import TodoItems from './todoItems'
 
@@ -16,80 +12,126 @@ export default class TodoView extends Component {
         this.state = {
             textValue: "",
             errorText: "",
-            items: [],
-            doneItems: [],
+            unShowDoneTodoList: true,
         }
     }
 
     static styles = {
-        underlineStyle: {
-            borderColor: green500,
-        },
+        checkbox: {
+            marginBottom: 16
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(this.props.currentTask != undefined &&
+            nextProps.currentTask.id != this.props.currentTask.id) {
+            this.setState({
+                unShowDoneTodoList: true
+            })
+        }
     }
 
     onChangeHandle = (event) => {
-        this.setState({ textValue: event.target.value })
+        this.setState({textValue: event.target.value})
     }
 
     addTodoHandle = (event) => {
         if (event.charCode === 13) {
-            let text = this.refs.todoInput.getValue()
+            let text = this.refs.inputTodo.value
             if (text.length > 0) {
-                this.props.addTodo(this.props.taskId, {todo: text})
-                this.setState({ textValue: "" })
-            } else {
-                this.setState({ errorText: "Don't add an empty todo item." })
+                this.props.addTodo(this.props.currentTask.id, {todo: text})
+                this.setState({textValue: ""})
             }
         }
     }
 
+    showDoneTodoListHandle = () => {
+        this.setState({
+            unShowDoneTodoList: !this.state.unShowDoneTodoList
+        })
+    }
+
     onFinishTodoHandle = (todoId) => {
-        setTimeout(() => {
-            this.props.updateTodoStatus(this.props.taskId, todoId, {status: "done"})
-        }, 300)
+        this.props.updateTodoStatus(this.props.taskId, todoId, {status: "done"})
     }
 
     onUnFinishTodoHandle = (todoId) => {
-         setTimeout(() => {
-            this.props.updateTodoStatus(this.props.taskId, todoId, {status: "doing"})
-        }, 300)       
+        this.props.updateTodoStatus(this.props.taskId, todoId, {status: "doing"})
     }
 
     render() {
-        let doneTotal = this.props.doneItemList.length
-        let total = this.props.doingItemList.length + doneTotal
+        let doneTotal = this.props.doneTodoList.length
+        let total = this.props.doingTodoList.length + doneTotal
         return (
-            <Paper className={Styles.todoWrapper} zDepth={2}>
-                <h2>{`All items (${total}/${doneTotal})`}</h2>
-                <h3 className={Styles.todoTitle}>
-                    <span>To do :</span>
-                    <div></div>
-                </h3>
-                <div className={Styles.todoListPanel}>
-                    <TodoItems test={"doing"} items={this.props.doingItemList}
-                        onChangeHandle={this.onFinishTodoHandle} />
+            <section className={Styles.taskTodoList}>
+                <div>
+                    {
+                        this.props.currentTask != undefined ?
+                            <h1>{`${this.props.currentTask.title} (${doneTotal}/${total})`}</h1> : null
+                    }
                 </div>
-                <div className={Styles.textFieldWrapper}>
-                    <TextField
-                        hintText={"Type and hit Enter to add"}
-                        underlineStyle={TodoView.styles.underlineStyle}
-                        fullWidth={true}
-                        onKeyPress={this.addTodoHandle}
-                        errorText={this.state.errorText}
-                        onChange={this.onChangeHandle}
-                        value={this.state.textValue}
-                        ref="todoInput"
-                    />
+                <div>
+                    <div className={Styles.addTodoInput}>
+                        <input
+                            type="text"
+                            placeholder="Add a to-do..."
+                            onChange={this.onChangeHandle}
+                            onKeyPress={this.addTodoHandle}
+                            value={this.state.textValue}
+                            ref="inputTodo"
+                        />
+                    </div>
+                    <div className={Styles.todoPanel}>
+                        <TodoItems
+                            test={"doing"}
+                            items={this.props.doingTodoList}
+                            onChangeHandle={this.onFinishTodoHandle}
+                        />
+                        <RaisedButton
+                            label="Show completed to-dos"
+                            className={Styles.showDoneListBar}
+                            onTouchTap={this.showDoneTodoListHandle}
+                        />
+                        <div
+                            className={this.state.unShowDoneTodoList ? Styles.unShowDoneTodoList : null}
+                        >
+                            <TodoItems
+                                test={"done"}
+                                items={this.props.doneTodoList}
+                                onChangeHandle={this.onUnFinishTodoHandle}
+                            />
+                        </div>
+                    </div>
                 </div>
-                <h3 className={Styles.doneTitle}>
-                    <span>Done :</span>
-                    <div></div>
-                </h3>
-                <div className={Styles.doneListPanel}>
-                    <TodoItems test={"done"} items={this.props.doneItemList}
-                        onChangeHandle={this.onUnFinishTodoHandle} />
-                </div>
-            </Paper>
+            </section>
         )
     }
 }
+
+// {/*<Paper className={Styles.todoWrapper} zDepth={2}>*/}
+//     {/*<h2>{`All items (${total}/${doneTotal})`}</h2>*/}
+//     {/*<h3 className={Styles.todoTitle}>*/}
+//         {/*<span>To do :</span>*/}
+//         {/*<div></div>*/}
+//     {/*</h3>*/}
+//     {/*<div className={Styles.textFieldWrapper}>*/}
+//         {/*<TextField*/}
+//             {/*hintText={"Type and hit Enter to add"}*/}
+//             {/*underlineStyle={TodoView.styles.underlineStyle}*/}
+//             {/*fullWidth={true}*/}
+//             {/*onKeyPress={this.addTodoHandle}*/}
+//             {/*errorText={this.state.errorText}*/}
+//             {/*onChange={this.onChangeHandle}*/}
+//             {/*value={this.state.textValue}*/}
+//             {/*ref="todoInput"*/}
+//         {/*/>*/}
+//     {/*</div>*/}
+//     {/*<h3 className={Styles.doneTitle}>*/}
+//         {/*<span>Done :</span>*/}
+//         {/*<div></div>*/}
+//     {/*</h3>*/}
+//     {/*<div className={Styles.doneListPanel}>*/}
+//         {/*<TodoItems test={"done"} items={this.props.doneItemList}*/}
+//                    {/*onChangeHandle={this.onUnFinishTodoHandle} />*/}
+//     {/*</div>*/}
+// {/*</Paper>*/}
